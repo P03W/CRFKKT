@@ -60,7 +60,7 @@ class CFInterpreter(var code: String, val options: CFOptions) {
                 for (x in 0 until count) {
                     tickExecutedInstructions()
                 }
-                instructionPointer = instructionPointerBefore
+                if (!options.eraseAllowsJumps) instructionPointer = instructionPointerBefore
             }
             'J' -> {
                 when (mode) {
